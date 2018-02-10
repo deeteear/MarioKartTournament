@@ -9,7 +9,8 @@ const Round = ({ currentRound, onSubmitScore }) => {
   const createMatchTable = (matchData) => {
     const placements = [...Array(matchData.length).keys()].map(x => x + 1)
 
-    return (<div>
+    const matchKey = matchData.map(matchdatum => matchdatum.player).join(',')
+    return (<div key={matchKey}>
       <BootstrapTable data={matchData} cellEdit={{
         mode: 'click',
         blurToSave: true,
