@@ -25,11 +25,11 @@ const AddPlayer = ({ players, onAddPlayer, onDeletePlayers, onStartGame }) => {
       afterInsertRow,
     }}>
       <TableHeaderColumn dataField='name' isKey={true}>Name</TableHeaderColumn>
-      <TableHeaderColumn dataField='score' hiddenOnInsert="hiddenOnInsert">Score</TableHeaderColumn>
+      <TableHeaderColumn dataField='score' hiddenOnInsert={true}>Score</TableHeaderColumn>
     </BootstrapTable>
     <br/>
     <form action="#">
-      <input class="btn btn-success" type="submit" onClick={onStartGame} value="StartGame"/>
+      <input className="btn btn-success" type="submit" onClick={onStartGame} value="StartGame"/>
     </form>
   </div>)
 }
