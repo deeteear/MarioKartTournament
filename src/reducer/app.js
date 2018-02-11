@@ -44,8 +44,13 @@ export default (state = defaultState, action) => {
       }
       return { ...state, currentRound: nextRound, currentPage: Pages.ROUND }
     }
-    case 'SUBMIT_SCORE':// TODO implement me
-      return state
+    case 'SUBMIT_SCORE':{
+      return {
+        ...state,
+        players: Functions.getPlayersWithUpdatedScores(state.players, action.placements),
+        currentPage: Pages.SCORE,
+      }
+    }
     case 'ROUND_END':
     // TODO implement me
     // TODO add score and sort players
