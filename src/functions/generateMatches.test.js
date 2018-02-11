@@ -32,7 +32,7 @@ for (let i = 1; i < maxMatchSize * 4; i++) {
   })
 
   const uniquePlayernames = [].concat.apply([], matches)
-    .map(player => player.player)
+    .map(player => player.name)
     .filter((value, index, self) => self.indexOf(value) === index)
   it('should put each player into exactly one match', () => {
     expect(uniquePlayernames.length).toBe(players.length)

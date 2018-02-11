@@ -28,7 +28,7 @@ const balanceMatchSizes = (matches) => {
 }
 
 const assignControllersToPlayers = (match) => {
-  return match.map((player, index) => ({ controller: index + 1, player: player.name }))
+  return match.map((player, index) => ({ controller: index + 1, name: player.name }))
 }
 
 export default (players) => {
