@@ -40,7 +40,7 @@ export default (state = defaultState, action) => {
       const randomizedPlayers = Functions.shuffleArray([...state.players])
       const nextRound = {
         matches: Functions.generateMatches(randomizedPlayers),
-        map: state.currentRound.map ? ((state.currentRound.map + 1) % 16) + 1 : 1,
+        map: Functions.getNextMap(state.currentRound.map),
       }
       return { ...state, currentRound: nextRound, currentPage: Pages.ROUND }
     }

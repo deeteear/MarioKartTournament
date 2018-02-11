@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 import PropTypes from 'prop-types'
 import { startRound, startKo } from '../actions'
-import Maps from '../constants/maps'
+import { getMapName } from '../functions/map'
 
 const Round = ({ currentRound, onSubmitScore }) => {
   const createMatchTable = (matchData) => {
@@ -31,7 +31,7 @@ const Round = ({ currentRound, onSubmitScore }) => {
   const matches = currentRound.matches.map((match) => createMatchTable(match))
   // TODO implement onSubmitScore
   return (<div>
-    <h1>Aktuelle Karte: {Maps[currentRound.map]}</h1>
+    <h1>Aktuelle Karte: {getMapName(currentRound.map)}</h1>
     <div>{matches}</div>
     <form action="#">
       <input className="btn btn-success" type="submit" onClick={onSubmitScore} value="SubmitScores"/>
