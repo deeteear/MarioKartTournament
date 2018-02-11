@@ -1,5 +1,5 @@
 import Pages from '../constants/pages'
-import { shuffleArray, generateMatches } from '../functions'
+import Functions from '../functions'
 
 const defaultState = {
   players: [
@@ -37,9 +37,9 @@ export default (state = defaultState, action) => {
       return { ...state, players: newPlayers }
     }
     case 'START_ROUND':{
-      const randomizedPlayers = shuffleArray([...state.players])
+      const randomizedPlayers = Functions.shuffleArray([...state.players])
       const nextRound = {
-        matches: generateMatches(randomizedPlayers),
+        matches: Functions.generateMatches(randomizedPlayers),
         map: state.currentRound.map ? ((state.currentRound.map + 1) % 16) + 1 : 1,
       }
       return { ...state, currentRound: nextRound, currentPage: Pages.ROUND }
@@ -52,7 +52,7 @@ export default (state = defaultState, action) => {
       return state
     case 'START_KO_ROUND':{
       const nextRound = {
-        matches: generateMatches([...state.players]),
+        matches: Functions.generateMatches([...state.players]),
         map: 1,
       }
       return { ...state, currentRound: nextRound, currentPage: Pages.ROUND }
