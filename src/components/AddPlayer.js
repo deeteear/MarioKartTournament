@@ -29,7 +29,7 @@ const AddPlayer = ({ players, onAddPlayer, onDeletePlayers, onStartGame }) => {
     </BootstrapTable>
     <br/>
     <form action="#">
-      <input className="btn btn-success" type="submit" onClick={onStartGame} value="StartGame"/>
+      <input className="btn btn-success" type="submit" onClick={onStartGame(players.length)} value="StartGame"/>
     </form>
   </div>)
 }
@@ -53,8 +53,8 @@ const mapDispatchToProps = (dispatch) => {
     onDeletePlayers: (name) => {
       dispatch(deletePlayers(name))
     },
-    onStartGame: () => {
-      dispatch(startGame())
+    onStartGame: (numberOfPlayers) => {
+      dispatch(startGame(numberOfPlayers))
     },
   }
 }

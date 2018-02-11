@@ -1,3 +1,5 @@
+import { minimalPlayers } from '../constants/config'
+
 export const addPlayer = (name) => {
   return {
     type: 'ADD_PLAYER',
@@ -12,7 +14,12 @@ export const deletePlayers = (names) => {
   }
 }
 
-export const startGame = () => {
+export const startGame = (numberOfPlayers) => {
+  if (numberOfPlayers < minimalPlayers){
+    return {
+      type: 'NOT_ENOUGH_PLAYERS',
+    }
+  }
   return {
     type: 'START_GAME',
   }
