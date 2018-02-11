@@ -2,7 +2,18 @@ import Pages from '../constants/pages'
 import { shuffleArray, generateMatches } from '../functions'
 
 const defaultState = {
-  players: [],
+  players: [
+    { name: 'alice', score: 0 },
+    { name: 'bob', score: 0 },
+    { name: 'carol', score: 0 },
+    { name: 'dave', score: 0 },
+    { name: 'eve', score: 0 },
+    { name: 'frank', score: 0 },
+    { name: 'grace', score: 0 },
+    { name: 'hank', score: 0 },
+    { name: 'iris', score: 0 },
+    { name: 'judy', score: 0 },
+  ],
   currentPage: Pages.ADD_PLAYER,
   currentRound: {},
 }
@@ -47,7 +58,7 @@ export default (state = defaultState, action) => {
       return { ...state, currentRound: nextRound, currentPage: Pages.ROUND }
     }
     case '@@INIT':{ // TODO remove me!
-      return { ...state, currentPage: Pages.ADD_PLAYER }
+      return { ...defaultState, players: [...state.players] }
     }
     default:
       return state
