@@ -6,13 +6,12 @@ import { startRound, startKo } from '../actions'
 
 const Score = ({ players, onStartRound, onStartKO }) => {
   return (<div>
-    <BootstrapTable data={players} defaultSorted={[{
-      dataField: 'score',
-      order: 'desc',
-    },
-    ]}>
+    <BootstrapTable data={players} options={ {
+      defaultSortName: 'score',
+      defaultSortOrder: 'desc',
+    }}>
       <TableHeaderColumn dataField='name' isKey={true}>Name</TableHeaderColumn>
-      <TableHeaderColumn dataField='score'>Score</TableHeaderColumn>
+      <TableHeaderColumn dataField='score' dataSort={ true }>Score</TableHeaderColumn>
     </BootstrapTable>
     <br/>
     <form action="#">
