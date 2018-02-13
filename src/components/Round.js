@@ -12,7 +12,6 @@ const Round = ({ currentRound, errorMessage, onSubmitScore }) => {
     const placements = [...Array(matchData.length).keys()].map(x => x + 1)
 
     const preventDuplicatePlacements = (row, cellName, cellValue) => {
-      // TODO: trigger INVALID_SCORES (or similar) action
       return !matchData.map(player => player.place).includes(cellValue)
     }
 

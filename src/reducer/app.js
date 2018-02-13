@@ -19,7 +19,7 @@ const defaultState = {
   currentRound: {},
   errorMessage: undefined,
 }
-// TODO add potentially missing actions
+
 export default (state = defaultState, action) => {
   switch (action.type) {
     case 'START_GAME':
