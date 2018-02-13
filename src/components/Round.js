@@ -4,6 +4,7 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 import PropTypes from 'prop-types'
 import { submitScore } from '../actions'
 import { getMapName } from '../functions/map'
+import Messages from '../messages'
 
 const Round = ({ currentRound, onSubmitScore }) => {
   const createMatchTable = (matchData) => {
@@ -38,7 +39,12 @@ const Round = ({ currentRound, onSubmitScore }) => {
     <h1>Aktuelle Karte: {getMapName(currentRound.map)}</h1>
     <div>{currentRound.matches.map((match) => createMatchTable(match))}</div>
     <form action="#">
-      <input className="btn btn-success" type="submit" onClick={() => onSubmitScore(currentRound)} value="SubmitScores"/>
+      <input
+        className="btn btn-success"
+        type="submit"
+        onClick={() => onSubmitScore(currentRound)}
+        value={Messages['button.submitScore']}
+      />
       &nbsp;
     </form>
   </div>)

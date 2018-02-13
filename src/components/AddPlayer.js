@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 import PropTypes from 'prop-types'
 import { addPlayer, deletePlayers, startGame } from '../actions'
+import Messages from '../messages'
 
 const AddPlayer = ({ players, onAddPlayer, onDeletePlayers, onStartGame }) => {
   const afterDeleteRow = (rowKeys) => {
@@ -29,7 +30,12 @@ const AddPlayer = ({ players, onAddPlayer, onDeletePlayers, onStartGame }) => {
     </BootstrapTable>
     <br/>
     <form action="#">
-      <input className="btn btn-success" type="submit" onClick={() => onStartGame(players.length)} value="StartGame"/>
+      <input
+        className="btn btn-success"
+        type="submit"
+        onClick={() => onStartGame(players.length)}
+        value={Messages['button.startGame']}
+      />
     </form>
   </div>)
 }

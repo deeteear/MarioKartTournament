@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 import PropTypes from 'prop-types'
 import { startRound, startKo } from '../actions'
+import Messages from '../messages'
 
 const Score = ({ players, onStartRound, onStartKO }) => {
   return (<div>
@@ -15,9 +16,9 @@ const Score = ({ players, onStartRound, onStartKO }) => {
     </BootstrapTable>
     <br/>
     <form action="#">
-      <input className="btn btn-success" type="submit" onClick={onStartRound} value="startRound"/>
+      <input className="btn btn-success" type="submit" onClick={onStartRound} value={Messages['button.startRound']}/>
       &nbsp;
-      <input className="btn btn-warning" type="submit" onClick={onStartKO} value="startKO"/>
+      <input className="btn btn-warning" type="submit" onClick={onStartKO} value={Messages['button.startKoRound']}/>
     </form>
   </div>)
 }
