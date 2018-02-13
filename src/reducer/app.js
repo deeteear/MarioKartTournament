@@ -1,4 +1,5 @@
 import Pages from '../constants/pages'
+import Messages from '../messages'
 import Functions from '../functions'
 
 const defaultState = {
@@ -16,16 +17,17 @@ const defaultState = {
   ],
   currentPage: Pages.ADD_PLAYER,
   currentRound: {},
+  errorMessage: undefined,
 }
 // TODO add potentially missing actions
 export default (state = defaultState, action) => {
   switch (action.type) {
     case 'START_GAME':
-      return { ...state, currentPage: Pages.SCORE }
+      return { ...state, errorMessage: undefined, currentPage: Pages.SCORE }
     case 'ADD_PLAYER': {
       const newPlayers = [...state.players]
       newPlayers.push({ name: action.name, score: 0 })
-      return { ...state, players: newPlayers }
+      return { ...state, errorMessage: undefined, players: newPlayers }
     }
     case 'DELETE_PLAYERS': {
       const newPlayers = []
@@ -34,7 +36,7 @@ export default (state = defaultState, action) => {
           newPlayers.push(player)
         }
       })
-      return { ...state, players: newPlayers }
+      return { ...state, errorMessage: undefined, players: newPlayers }
     }
     case 'START_ROUND':{
       const randomizedPlayers = Functions.shuffleArray([...state.players])
@@ -42,28 +44,29 @@ export default (state = defaultState, action) => {
         matches: Functions.generateMatches(randomizedPlayers),
         map: Functions.getNextMap(state.currentRound.map),
       }
-      return { ...state, currentRound: nextRound, currentPage: Pages.ROUND }
+      return { ...state, errorMessage: undefined, currentRound: nextRound, currentPage: Pages.ROUND }
+    }
+    case 'INVALID_SCORES': {
+      return { ...state, errorMessage: Messages['error.invalid_scores'] }
     }
     case 'SUBMIT_SCORE':{
       return {
         ...state,
+        errorMessage: undefined,
         players: Functions.getPlayersWithUpdatedScores(state.players, action.placements),
         currentPage: Pages.SCORE,
       }
     }
-    case 'ROUND_END':
-    // TODO implement me
-    // TODO add score and sort players
-      return state
     case 'START_KO_ROUND':{
+      // TODO implement a ko-round component
       const nextRound = {
         matches: Functions.generateMatches([...state.players]),
         map: 1,
       }
-      return { ...state, currentRound: nextRound, currentPage: Pages.ROUND }
+      return { ...state, errorMessage: undefined, currentRound: nextRound, currentPage: Pages.ROUND }
     }
     case '@@INIT':{ // TODO remove me!
-      return { ...defaultState, players: [...state.players] }
+      return { ...defaultState, errorMessage: undefined, players: [...state.players] }
     }
     default:
       return state

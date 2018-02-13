@@ -2,11 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 import PropTypes from 'prop-types'
+import ErrorMessageBox from './ErrorMessageBox'
 import { submitScore } from '../actions'
 import { getMapName } from '../functions/map'
 import Messages from '../messages'
 
-const Round = ({ currentRound, onSubmitScore }) => {
+const Round = ({ currentRound, errorMessage, onSubmitScore }) => {
   const createMatchTable = (matchData) => {
     const placements = [...Array(matchData.length).keys()].map(x => x + 1)
 
@@ -37,6 +38,7 @@ const Round = ({ currentRound, onSubmitScore }) => {
 
   return (<div>
     <h1>Aktuelle Karte: {getMapName(currentRound.map)}</h1>
+    <ErrorMessageBox errorMessage={errorMessage} />
     <div>{currentRound.matches.map((match) => createMatchTable(match))}</div>
     <form action="#">
       <input
@@ -53,10 +55,14 @@ const Round = ({ currentRound, onSubmitScore }) => {
 Round.propTypes = {
   currentRound: PropTypes.object,
   onSubmitScore: PropTypes.func,
+  errorMessage: PropTypes.string,
 }
 
 const mapStateToProps = (state) => {
-  return { currentRound: state.app.currentRound }
+  return {
+    currentRound: state.app.currentRound,
+    errorMessage: state.app.errorMessage,
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
