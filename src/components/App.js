@@ -5,20 +5,39 @@ import Pages from '../constants/pages'
 import AddPlayer from './AddPlayer'
 import Score from './Score'
 import Round from './Round'
+import Header from './Header'
 
 const App = ({ currentPage }) => {
+  let content
   switch (currentPage) {
-    case Pages.KO_ROUND:
-      return (<div/>)
-    case Pages.ROUND:
-      return (<Round/>)
-    case Pages.SCORE:
-      return (<Score/>)
-    case Pages.ADD_PLAYER:
-      return (<AddPlayer/>)
-    default:
-      return (<AddPlayer/>)
+    case Pages.KO_ROUND:{
+      content = (<div>IMPLEMENT ME!</div>)
+      break
+    }
+    case Pages.ROUND:{
+      content = (<Round/>)
+      break
+    }
+    case Pages.SCORE:{
+      content = (<Score/>)
+      break
+    }
+    case Pages.ADD_PLAYER:{
+      content = (<AddPlayer/>)
+      break
+    }
+    default:{
+      content = (<AddPlayer/>)
+      break
+    }
   }
+
+  return (
+    <div>
+      <Header />
+      {content}
+    </div>
+  )
 }
 
 App.propTypes = {
