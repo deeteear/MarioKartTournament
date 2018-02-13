@@ -63,10 +63,9 @@ export default (state = defaultState, action) => {
     case 'START_KO_ROUND':{
       // TODO implement a ko-round component
       const nextRound = {
-        matches: Functions.generateMatches([...state.players]),
-        map: 1,
+        matches: Functions.generateKoRound([...state.players]),
       }
-      return { ...state, errorMessage: undefined, currentRound: nextRound, currentPage: Pages.ROUND }
+      return { ...state, errorMessage: undefined, currentRound: nextRound, currentPage: Pages.KO_ROUND }
     }
     case '@@INIT':{ // TODO remove me!
       return { ...defaultState, errorMessage: undefined, players: [...state.players] }
