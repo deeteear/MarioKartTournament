@@ -17,18 +17,14 @@ const AddPlayer = ({ players, errorMessage, onAddPlayer, onDeletePlayers, onStar
 
   return (<div>
     <ErrorMessageBox errorMessage={errorMessage} />
-    <BootstrapTable data={players} deleteRow={true} insertRow={true} defaultSorted={[{
-      dataField: 'score',
-      order: 'desc',
-    },
-    ]} selectRow={{
-      mode: 'checkbox',
-    }} options={{
-      afterDeleteRow,
-      afterInsertRow,
-    }}>
+    <BootstrapTable
+      data={players}
+      deleteRow={true}
+      insertRow={true}
+      selectRow={{ mode: 'checkbox' }}
+      options={{ afterDeleteRow, afterInsertRow }}
+    >
       <TableHeaderColumn dataField='name' isKey={true}>Name</TableHeaderColumn>
-      <TableHeaderColumn dataField='score' hiddenOnInsert={true}>Score</TableHeaderColumn>
     </BootstrapTable>
     <br/>
     <form action="#">
