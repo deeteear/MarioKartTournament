@@ -46,6 +46,9 @@ export default (state = defaultState, action) => {
       }
       return { ...state, errorMessage: undefined, currentRound: nextRound, currentPage: Pages.ROUND }
     }
+    case 'NOT_ENOUGH_PLAYERS': {
+      return { ...state, errorMessage: Messages['error.not_enough_players'] }
+    }
     case 'INVALID_SCORES': {
       return { ...state, errorMessage: Messages['error.invalid_scores'] }
     }

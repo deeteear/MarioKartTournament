@@ -4,8 +4,9 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 import PropTypes from 'prop-types'
 import { addPlayer, deletePlayers, startGame } from '../actions'
 import Messages from '../messages'
+import ErrorMessageBox from './ErrorMessageBox'
 
-const AddPlayer = ({ players, onAddPlayer, onDeletePlayers, onStartGame }) => {
+const AddPlayer = ({ players, errorMessage, onAddPlayer, onDeletePlayers, onStartGame }) => {
   const afterDeleteRow = (rowKeys) => {
     onDeletePlayers(rowKeys)
   }
@@ -15,6 +16,7 @@ const AddPlayer = ({ players, onAddPlayer, onDeletePlayers, onStartGame }) => {
   }
 
   return (<div>
+    <ErrorMessageBox errorMessage={errorMessage} />
     <BootstrapTable data={players} deleteRow={true} insertRow={true} defaultSorted={[{
       dataField: 'score',
       order: 'desc',
@@ -42,13 +44,17 @@ const AddPlayer = ({ players, onAddPlayer, onDeletePlayers, onStartGame }) => {
 
 AddPlayer.propTypes = {
   players: PropTypes.array,
+  errorMessage: PropTypes.string,
   onAddPlayer: PropTypes.func,
   onDeletePlayers: PropTypes.func,
   onStartGame: PropTypes.func,
 }
 
 const mapStateToProps = (state) => {
-  return { players: state.app.players }
+  return {
+    players: state.app.players,
+    errorMessage: state.app.errorMessage,
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
