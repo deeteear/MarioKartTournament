@@ -9,11 +9,17 @@ const Round = ({ currentRound, onSubmitScore }) => {
   const createMatchTable = (matchData) => {
     const placements = [...Array(matchData.length).keys()].map(x => x + 1)
 
+    const preventDuplicatePlacements = (row, cellName, cellValue) => {
+      // TODO: trigger INVALID_SCORES (or similar) action
+      return !matchData.map(player => player.place).includes(cellValue)
+    }
+
     const matchKey = matchData.map(player => player.name).join(',')
     return (<div key={matchKey}>
       <BootstrapTable data={matchData} cellEdit={{
         mode: 'click',
         blurToSave: true,
+        beforeSaveCell: preventDuplicatePlacements,
       }}>
         <TableHeaderColumn dataField='name' isKey={true}>Name</TableHeaderColumn>
         <TableHeaderColumn dataField='controller' editable={false}>Controller</TableHeaderColumn>
