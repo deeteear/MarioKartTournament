@@ -16,7 +16,7 @@ const Round = ({ currentRound, onSubmitScore }) => {
         blurToSave: true,
       }}>
         <TableHeaderColumn dataField='name' isKey={true}>Name</TableHeaderColumn>
-        <TableHeaderColumn dataField='controller'>Controller</TableHeaderColumn>
+        <TableHeaderColumn dataField='controller' editable={false}>Controller</TableHeaderColumn>
         <TableHeaderColumn dataField='place' editable={{
           type: 'select',
           options: {
