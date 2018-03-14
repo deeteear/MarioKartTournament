@@ -39,9 +39,8 @@ export default (state = defaultState, action) => {
       return { ...state, errorMessage: undefined, players: newPlayers }
     }
     case 'START_ROUND':{
-      const randomizedPlayers = Functions.shuffleArray([...state.players])
       const nextRound = {
-        matches: Functions.generateMatches(randomizedPlayers),
+        matches: Functions.generateMatches([...state.players]),
         map: Functions.getNextMap(state.currentRound.map),
       }
       return { ...state, errorMessage: undefined, currentRound: nextRound, currentPage: Pages.ROUND }

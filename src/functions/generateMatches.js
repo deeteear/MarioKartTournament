@@ -1,4 +1,5 @@
 import { maxMatchSize } from '../constants/config'
+import shuffleArray from './shuffleArray'
 
 const dividePlayersIntoMatches = (players) => {
   const matches = []
@@ -32,7 +33,8 @@ const assignControllersToPlayers = (match) => {
 }
 
 export default (players) => {
-  const matches = dividePlayersIntoMatches(players)
+  const randomizedPlayers = shuffleArray(players)
+  const matches = dividePlayersIntoMatches(randomizedPlayers)
   balanceMatchSizes(matches)
   return matches.map(assignControllersToPlayers)
 }
