@@ -11,8 +11,8 @@ const Score = ({ players, onStartRound, onStartKO }) => {
       defaultSortName: 'score',
       defaultSortOrder: 'desc',
     }}>
-      <TableHeaderColumn dataField='name' isKey={true}>Name</TableHeaderColumn>
-      <TableHeaderColumn dataField='score' dataSort={ true }>Score</TableHeaderColumn>
+      <TableHeaderColumn dataField='name' isKey={true}>{Messages['scorePage.nameColumn']}</TableHeaderColumn>
+      <TableHeaderColumn dataField='score' dataSort={ true }>{Messages['scorePage.scoreColumn']}</TableHeaderColumn>
     </BootstrapTable>
     <br/>
     <form action="#">

@@ -22,21 +22,21 @@ const Round = ({ currentRound, errorMessage, onSubmitScore }) => {
         blurToSave: true,
         beforeSaveCell: preventDuplicatePlacements,
       }}>
-        <TableHeaderColumn dataField='name' isKey={true}>Name</TableHeaderColumn>
-        <TableHeaderColumn dataField='controller' editable={false}>Controller</TableHeaderColumn>
+        <TableHeaderColumn dataField='name' isKey={true}>{Messages['roundPage.nameColumn']}</TableHeaderColumn>
+        <TableHeaderColumn dataField='controller' editable={false}>{Messages['roundPage.controllerColumn']}</TableHeaderColumn>
         <TableHeaderColumn dataField='place' editable={{
           type: 'select',
           options: {
             values: placements,
           },
-        }}>Platzierung</TableHeaderColumn>
+        }}>{Messages['roundPage.placementColumn']}</TableHeaderColumn>
       </BootstrapTable>
       <br/>
     </div>)
   }
 
   return (<div>
-    <h1>Aktuelle Karte: {getMapName(currentRound.map)}</h1>
+    <h1>{Messages['roundPage.currentMap']}: {getMapName(currentRound.map)}</h1>
     <ErrorMessageBox errorMessage={errorMessage} />
     <div>{currentRound.matches.map((match) => createMatchTable(match))}</div>
     <form action="#">

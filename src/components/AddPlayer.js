@@ -24,7 +24,7 @@ const AddPlayer = ({ players, errorMessage, onAddPlayer, onDeletePlayers, onStar
       selectRow={{ mode: 'checkbox' }}
       options={{ afterDeleteRow, afterInsertRow }}
     >
-      <TableHeaderColumn dataField='name' isKey={true}>Name</TableHeaderColumn>
+      <TableHeaderColumn dataField='name' isKey={true}>{Messages['addPlayersPage.nameColumn']}</TableHeaderColumn>
     </BootstrapTable>
     <br/>
     <form action="#">
