@@ -11,7 +11,7 @@ export const getPlayersWithUpdatedScores = (players, placements) => {
   const playersWithUpdatedScores = []
   placements.forEach(placement => {
     const currentPlayer = players.find(player => player.name === placement.name)
-    currentPlayer.score = currentPlayer.score + scores[placement.place]
+    currentPlayer.score = currentPlayer.score + scores[Number(placement.place) - 1]
     playersWithUpdatedScores.push(currentPlayer)
   })
   return playersWithUpdatedScores

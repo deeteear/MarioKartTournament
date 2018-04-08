@@ -11,16 +11,13 @@ Enter an integer ∈ {2,..., maxMatchSize } that determines the minimal size of 
 Enter an integer > minimalPlayers that determines the maximal size of each match.
 
 ### scores
-Enter a map containing keys ∈ {'1',...,'maxMatchSize'} and values representing the score a player will receive after a match when he is the key'th player, i.e.
+Enter a sorted array containing the scores a player can receive after a match, i.e.
 ```
-{
-  '1': 9,
-  '2': 6,
-  '3': 3,
-  '4': 1,
-}
+[9, 6, 3, 1]
 ```
-means that the first player receives 9 points, the second receives 6 points and so on.
+means that the first player receives 9 points, the second receives 6 points, the third 3 points and the 4th (and last) 1 point.
+
+**Note that the array should have size maxMatchSize**
 ### maps
 TODO
 
