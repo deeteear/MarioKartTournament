@@ -5,7 +5,7 @@ export default {
   'button.startGame': 'StartGame',
   'button.submitScore': 'SubmitScores',
   'button.startRound': 'StartRound',
-  'button.startKoRound': 'startKO',
+  'button.startFinalRound': 'StartFinalRound',
   'addPlayersPage.nameColumn': 'Name',
   'scorePage.nameColumn': 'Name',
   'scorePage.scoreColumn': 'Score',

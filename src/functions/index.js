@@ -3,7 +3,7 @@ import generateMatches from './generateMatches'
 import { getMapName, getNextMap } from './map'
 import { getPlayersWithUpdatedScores, hasValidScores } from './scores'
 
-const generateKoRound = () => {} // TODO implement me
+const generateFinalRound = () => {} // TODO implement me
 
 export default {
   shuffleArray,
@@ -12,5 +12,5 @@ export default {
   getNextMap,
   getPlayersWithUpdatedScores,
   hasValidScores,
-  generateKoRound,
+  generateFinalRound,
 }

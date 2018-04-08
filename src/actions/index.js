@@ -32,9 +32,9 @@ export const startRound = () => {
   }
 }
 
-export const startKo = () => {
+export const startFinalRound = () => {
   return {
-    type: 'START_KO_ROUND',
+    type: 'START_FINAL_ROUND',
   }
 }
 

@@ -2,10 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 import PropTypes from 'prop-types'
-import { startRound, startKo } from '../actions'
+import { startRound, startFinalRound } from '../actions'
 import Messages from '../messages'
 
-const Score = ({ players, onStartRound, onStartKO }) => {
+const Score = ({ players, onStartRound, onStartFinalRound }) => {
   return (<div>
     <BootstrapTable data={players} options={ {
       defaultSortName: 'score',
@@ -18,7 +18,7 @@ const Score = ({ players, onStartRound, onStartKO }) => {
     <form action="#">
       <input className="btn btn-success" type="submit" onClick={onStartRound} value={Messages['button.startRound']}/>
       &nbsp;
-      <input className="btn btn-warning" type="submit" onClick={onStartKO} value={Messages['button.startKoRound']}/>
+      <input className="btn btn-warning" type="submit" onClick={onStartFinalRound} value={Messages['button.startFinalRound']}/>
     </form>
   </div>)
 }
@@ -26,7 +26,7 @@ const Score = ({ players, onStartRound, onStartKO }) => {
 Score.propTypes = {
   players: PropTypes.array,
   onStartRound: PropTypes.func,
-  onStartKO: PropTypes.func,
+  onStartFinalRound: PropTypes.func,
 }
 
 const mapStateToProps = (state) => {
@@ -38,8 +38,8 @@ const mapDispatchToProps = (dispatch) => {
     onStartRound: () => {
       dispatch(startRound())
     },
-    onStartKO: () => {
-      dispatch(startKo())
+    onStartFinalRound: () => {
+      dispatch(startFinalRound())
     },
   }
 }

@@ -43,7 +43,7 @@ Once the game starts, you see the score page. It consists of a sorted table with
 
 You can use the `StartRound` button to start a new round.
 
-Not yet implemented: `StartKO` button to start a k/o mode at the end of the game to determine a tournament winner. Note that you can also use the `StartRound` button as often as you wish and use the score page to determine a winner.
+Not yet implemented: `StartFinalRound` button to start a final round mode at the end of the game to determine a tournament winner. Note that you can also use the `StartRound` button as often as you wish and use the score page to determine a winner.
 
 ### (regular) Round Page
 The round page shows which players play against each other in the current map.
@@ -60,7 +60,7 @@ Once all matches of the current round are finished and got their scores entered,
 
 **Note that each player must have a placement and each placement in a match must be different to be able to finish a round!**
 
-### (k/o) Round Page
+### (final) Round Page
 TODO
 
 # Development hints

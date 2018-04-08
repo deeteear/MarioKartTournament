@@ -10,7 +10,7 @@ import Header from './Header'
 const App = ({ currentPage }) => {
   let content
   switch (currentPage) {
-    case Pages.KO_ROUND:{
+    case Pages.FINAL_ROUND:{
       content = (<div>IMPLEMENT ME!</div>)
       break
     }
