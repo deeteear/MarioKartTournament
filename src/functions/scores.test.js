@@ -45,14 +45,14 @@ describe('getPlayersWithUpdatedScores', () => {
     { name: 'adam', place: 1 },
   ]
   const playersWithUpdatedScores = getPlayersWithUpdatedScores(players, placements)
-  
+
   it('should return an array with all players', () => {
     expect(playersWithUpdatedScores.length).toBe(players.length)
     expect(players.every(player => playersWithUpdatedScores.includes(player))).toBe(true)
   })
 
   it('should increase players score with the correct amount', () => {
-    expect(playersWithUpdatedScores.find(player => player.name === 'adam').score).toBe(0 + scores[1])
-    expect(playersWithUpdatedScores.find(player => player.name === 'bert').score).toBe(9 + scores[2])
+    expect(playersWithUpdatedScores.find(player => player.name === 'adam').score).toBe(0 + scores[0])
+    expect(playersWithUpdatedScores.find(player => player.name === 'bert').score).toBe(9 + scores[1])
   })
 })
